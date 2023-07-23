@@ -4,3 +4,10 @@ FROM employee e
 WHERE e.salary != (SELECT MAX(e1.salary)
                     FROM employee e1 
                   );
+
+
+// second solution way faster
+ SELECT( SELECT DISTINCT e.salary
+      FROM employee e 
+      ORDER BY salary DESC
+      LIMIT 1 OFFSET 1) AS SecondHighestSalary;
