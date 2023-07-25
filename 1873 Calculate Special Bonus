@@ -1,0 +1,6 @@
+# Write your MySQL query statement below
+
+SELECT e.employee_id,
+IF ( LEFT(e.name,1) NOT LIKE 'M' AND e.employee_id %2 <> 0, e.salary, 0) as bonus
+FROM Employees e
+ORDER BY e.employee_id;
